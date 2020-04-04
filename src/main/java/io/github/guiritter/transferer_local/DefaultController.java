@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
+// import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
@@ -41,4 +42,22 @@ public class DefaultController {
 			inputStream.close();
 		};
 	}
+
+	// @GetMapping("download")
+	// public ResponseEntity<StreamingResponseBody> downloadHub(HttpServletResponse response) throws IOException {
+	// 	File file = new File(filePath + fileName);
+	// 	response.setContentType(APPLICATION_OCTET_STREAM_VALUE);
+	// 	response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
+	// 	response.setHeader("Content-Length", file.length() + "");
+	// 	InputStream inputStream = new FileInputStream(file);
+
+	// 	return ResponseEntity.ok(outputStream -> {
+	// 		int nRead;
+	// 		byte[] data = new byte[1024*1024];
+	// 		while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+	// 			outputStream.write(data, 0, nRead);
+	// 		}
+	// 		inputStream.close();
+	// 	});
+	// }
 }
